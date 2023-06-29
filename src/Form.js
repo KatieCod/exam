@@ -20,7 +20,7 @@ function Form(props) {
                     <label for="formGroupExampleInput2">description</label>
                     <input name="description" onChange={props.showname} type="text" class="form-control" id="formGroupExampleInput2" placeholder="Description" />
                 </div>
-                <button onSubmit={props.handleClick} type="submit" class="btn btn-outline-success">Add item</button>
+                <button onClick={props.handleClick} type="submit" class="btn btn-outline-success">Add item</button>
             </form>
         </div>
     )
