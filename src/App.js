@@ -39,6 +39,12 @@ function App() {
   ])
 
   const [itemCard, setItemCard] = useState([])
+  const [newItem, setNewItem] = useState({
+    name: "",  
+    price: "",
+    image: "",
+    description: ""
+  })
 
   function handleClick(item) {
     setItemCard([item])
@@ -47,12 +53,14 @@ function App() {
 
   function handleData(e) {
     const {name, value} = e.target;
-    setData([...data, {[name]:value}])
+    setNewItem({...newItem, [name]:value})
+    console.log(newItem)
   }
 
   function handleSubmit(e) {
-    e.preventDefualt();
-
+    e.preventDefault();
+    setData([...data, newItem])
+    console.log(data)
   }
 
   return (
@@ -73,7 +81,7 @@ function App() {
           <div className='col'>
           <h4>ADD ITEM</h4>
 
-          <Form handleSubmit={handleSubmit} showname={handleData}/>
+          <Form handleClick={handleSubmit} showname={handleData}/>
           </div>
           
         </div>
@@ -81,6 +89,6 @@ function App() {
 
     </div>
   )
-}
+ }
 
 export default App;
